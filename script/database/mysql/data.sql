@@ -1,0 +1,2 @@
+/* Inserting data  */
+insert into post(title, author, content) values ('Broken Glass', 'Alain Mabanckou', 'A black comedy told by a disgraced teacher without much in the way of full stops or paragraph breaks.');

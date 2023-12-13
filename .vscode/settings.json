@@ -1,0 +1,44 @@
+{
+  "window.zoomLevel": 0,
+  "files.eol": "\n",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[javascript][typescript][json]": {
+    "editor.tabSize": 2,
+    "editor.tabCompletion": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.sortImports": "explicit"
+  },
+  "editor.wordWrap": "on",
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.printWidth": 100,
+  "prettier.endOfLine": "lf",
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "none",
+
+  "npm-intellisense.importES6": true,
+  "npm-intellisense.importQuotes": "'",
+  "npm-intellisense.importLinebreak": ";\r\n",
+  "npm-intellisense.importDeclarationType": "const",
+
+  "javascript.suggestionActions.enabled": false,
+
+  "terminal.integrated.defaultProfile.windows": "GitBash",
+  "terminal.integrated.profiles.windows": {
+    "GitBash": {
+      "source": "Git Bash",
+      "path": [
+        "C:\\Program Files\\Git\\bin\\bash.exe"
+      ],
+      "icon": "terminal-bash"
+    }
+  }
+}

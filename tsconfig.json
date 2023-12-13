@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "es2022"
+    ],
+    "module": "CommonJS",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@database/*": [
+        "src/database/*"
+      ],
+      "@module/*": [
+        "src/module/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

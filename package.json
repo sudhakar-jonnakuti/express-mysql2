@@ -1,0 +1,47 @@
+{
+  "name": "express-mysql2",
+  "version": "1.0.0",
+  "description": "express + typescript + mysql2",
+  "main": "dist/index.js",
+  "scripts": {
+    "app:watch:dev": "cross-env ENV_NAME=DEV tsx watch src",
+    "app:format": "prettier --config .prettierrc src/**/*.ts --write",
+    "app:typecheck": "tsc -noEmit",
+    "app:lint": "eslint . --ext .ts",
+    "app:build": "rm -rf ./dist && node esbuild.js",
+    "app:start:dev": "cross-env ENV_NAME=DEV node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Sudhakar Jonnakuti",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "envalid": "^8.0.0",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "http-status": "^1.7.3",
+    "http-terminator": "^3.2.0",
+    "mysql2": "^3.6.5",
+    "sqlstring": "^2.3.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/module-alias": "^2.0.4",
+    "@types/node": "^20.10.5",
+    "@types/sqlstring": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.19.10",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "module-alias": "^2.2.3",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  }
+}

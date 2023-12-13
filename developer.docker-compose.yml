@@ -1,0 +1,77 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: blog
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - database-volume:/var/lib/mysql
+      - "./script/database/mysql/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./script/database/mysql/data.sql:/docker-entrypoint-initdb.d/2.sql"
+    networks:
+      - app-network
+
+  adminer:
+    depends_on:
+      - mysql
+    image: adminer:4
+    container_name: adminer
+    restart: always
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  express-mysql2:
+    depends_on:
+      - mysql
+    build:
+      context: .
+      dockerfile: developer.dockerfile
+    image: express-mysql2
+    container_name: express-mysql2
+    ports:
+      - "5000:5000"
+    environment:
+      APP_PORT: 5000
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: blog
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_PORT: 3306
+      MYSQL_CONNECTION_LIMIT: 10
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    command: >
+      bash -c "
+        npm run app:typecheck
+        npm run app:lint
+        npm run app:build
+        npm run app:start:dev
+      "
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  database-volume:
+  node_modules:

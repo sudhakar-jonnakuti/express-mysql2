@@ -1,0 +1,9 @@
+.vscode
+dist
+node_modules
+
+.eslintignore
+.prettierignore
+.prettierrc
+
+tsconfig.json
